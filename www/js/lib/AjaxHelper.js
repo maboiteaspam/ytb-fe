@@ -21,7 +21,10 @@ define([],function(){
     that.getJSON = function(url,data,time_before,time_after){
       return defer($.ajax({
         "url":base_url+url,
-        "data":data
+        "data":data,
+        xhrFields: {
+          withCredentials: true
+        }
       }),time_before,time_after);
     };
 
@@ -29,7 +32,10 @@ define([],function(){
       return defer($.ajax({
         'type':'POST',
         "url":base_url+url,
-        "data":data
+        "data":data,
+        xhrFields: {
+          withCredentials: true
+        }
       }),time_before,time_after);
     };
 
@@ -39,7 +45,10 @@ define([],function(){
         "url":base_url+url,
         'contentType': false,
         'processData': false,
-        "data":data
+        "data":data,
+        xhrFields: {
+          withCredentials: true
+        }
       }),time_before,time_after);
     };
 
@@ -47,7 +56,10 @@ define([],function(){
       return defer($.ajax({
         "url":base_url+url,
         "data":data,
-        "dataType":"text"
+        "dataType":"text",
+        xhrFields: {
+          withCredentials: true
+        }
       }),time_before,time_after);
     };
   }
