@@ -1,0 +1,13 @@
+
+.theme-darkly .progress,
+.theme-flatfly .progress,
+.theme-journal .progress,
+.theme-readale .progress,
+.theme-simplex .progress,
+.theme-spacelab .progress,
+.theme-yeti .progress,
+.theme-cerulean .progress,
+.theme-united .progress,
+.theme-lumen .progress{
+    background-color: #d3d3d3;
+}

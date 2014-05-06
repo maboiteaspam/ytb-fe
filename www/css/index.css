@@ -1,0 +1,221 @@
+body{
+    overflow-y: scroll;
+}
+
+.footer{
+    padding-top: 5px;
+}
+
+.downloadView{
+    overflow: hidden;
+}
+.downloadView .optionsView{
+    height: 0;
+    visibility: hidden;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.downloadView .loader{
+    visibility: hidden;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.5s;
+    padding: 0px;
+}
+.downloadView .loader.visible{
+    opacity: 1;
+    visibility: visible;
+    padding: 10px;
+}
+.downloadView.loaded .loader.visible{
+    height: 0;
+    opacity: 0;
+    padding: 0;
+}
+.downloadView.loaded .optionsView.visible{
+    min-height: 210px;
+    visibility: visible;
+}
+
+.downloadView .errorsView{
+    opacity: 0;
+    height: 0;
+    margin-top: 0;
+    visibility: hidden;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.downloadView .errorsView.visible{
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    margin-top: 20px;
+}
+
+.currentsView .table-responsive{
+    opacity: 0;
+    height: 0;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView.visible .table-responsive{
+    opacity: 1;
+    height: auto;
+}
+
+.currentsView .loader{
+    opacity: 1;
+    height: 40px;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView.visible .loader{
+    opacity: 0;
+    height: 0px;
+}
+
+
+.currentsView tr{
+}
+.currentsView tr td{
+    position: relative;
+    vertical-align: middle;
+}
+.currentsView span{
+    font-size: 1.3em;
+    padding: 2px;
+    transition-property: all;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.currentsView span:hover{
+}
+.currentsView button:hover{
+    margin-top: 0px;
+    border-bottom-width: 0px;
+}
+.currentsView .progress-bar span{
+    font-size: 1em;
+    padding: 1px;
+}
+.currentsView .btn-start{
+    position: absolute;
+    top:0px;
+    left:0px;
+    opacity: 0;
+    height: 0px;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+.currentsView .btn-start.visible{
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.currentsView .btn-start .bg-primary{
+    position: absolute;
+    top:0px;
+    left:0px;
+    opacity: 0;
+    height: 0px;
+    width: 100%;
+}
+.currentsView .btn-start.visible .bg-primary{
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+}
+.currentsView .progress{
+    position: absolute;
+    width: 100%;
+    top:4px;
+    left:0px;
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+.currentsView .progress-bar{
+    font-size: 13px !important;
+    line-height: 15px!important;
+}
+.currentsView .progress.eventually_inactive{
+}
+.currentsView .progress.probably_inactive{
+}
+.currentsView .progress.seriously_inactive{
+}
+.currentsView .progress.visible{
+    visibility: visible;
+    opacity: 1;
+    height: 20px;
+}
+.currentsView .progress-bar{
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView .progress .achieved{
+    text-align: left;
+    position: absolute;
+    left: -100%;
+    visibility: hidden;
+    width: 0;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView .progress .achieved.visible{
+    left: 10px;
+    width: 100%;
+    visibility: visible;
+}
+.currentsView .progress .inactivity{
+    text-align: left;
+    position: absolute;
+    left: 100%;
+    visibility: hidden;
+    width: 0;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView .progress .inactivity.visible{
+    left: 10px;
+    width: 100%;
+    visibility: visible;
+}
+.currentsView .btn-play{
+    position: absolute;
+    width: 100%;
+    top:0px;
+    left:0px;
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+    text-align: center;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView .btn-play.visible{
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+}
+.currentsView .btn-play .bg-primary{
+    position: absolute;
+    top:0px;
+    left:0px;
+    opacity: 0;
+    height: 0px;
+    width: 100%;
+    transition-property: all;
+    transition-duration: 0.5s
+}
+.currentsView .btn-play.visible .bg-primary{
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+}
+.currentsView .btn-play:hover button{
+    text-decoration: underline !important;
+}
