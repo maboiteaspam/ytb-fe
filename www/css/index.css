@@ -6,8 +6,13 @@ body{
     padding-top: 5px;
 }
 
+
 .downloadView{
     overflow: hidden;
+}
+.downloadView .input_url{
+    width: 650px;
+    margin-left: 15px;
 }
 .downloadView .optionsView{
     height: 0;
