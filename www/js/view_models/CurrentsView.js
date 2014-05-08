@@ -28,8 +28,15 @@ define([
             errors: ko.observableArray(),
             inactivity_time: ko.observable(),
             webpage_url: ko.observable(),
-            url: ko.observable()
+            url: ko.observable(),
+            user_dld_url: ko.observable()
           };
+          item.filenameDisplay = ko.computed(function(){
+            return this.filename() ? this.filename() : this.user_dld_url();
+          },item);
+          item.titleDisplay = ko.computed(function(){
+            return this.fulltitle() ? this.fulltitle() : this.user_dld_url();
+          },item);
           item.has_errors = ko.computed(function(){
             return this.errors().length>0;
           },item);
@@ -76,6 +83,7 @@ define([
         item.inactivity_time(items[n].inactivity_time);
         item.webpage_url(items[n].webpage_url);
         item.url(items[n].url);
+        item.user_dld_url(items[n].user_dld_url);
       }
     }
 
