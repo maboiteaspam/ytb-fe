@@ -27,7 +27,8 @@ define([
             speed: ko.observable(),
             errors: ko.observableArray(),
             inactivity_time: ko.observable(),
-            webpage_url: ko.observable()
+            webpage_url: ko.observable(),
+            url: ko.observable()
           };
           item.has_errors = ko.computed(function(){
             return this.errors().length>0;
@@ -74,6 +75,7 @@ define([
         item.achieved(items[n].achieved);
         item.inactivity_time(items[n].inactivity_time);
         item.webpage_url(items[n].webpage_url);
+        item.url(items[n].url);
       }
     }
 
