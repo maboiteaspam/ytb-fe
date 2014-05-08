@@ -218,7 +218,7 @@
       var i = $(this).parent().parent().index();
       var items = currentsView.items();
       if( items[i] ){
-        downloadView.url_to_fetch( items[i].url() );
+        downloadView.url_to_fetch( items[i].user_dld_url() );
         downloadView.audio_only( items[i].audio_only() );
       }
       ev.preventDefault();
