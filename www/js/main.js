@@ -142,7 +142,7 @@
       var i = $(this).parent().parent().index();
       var items = currentsView.items();
       if( items[i] ){
-        var url = items[i].url();
+        var url = items[i].user_dld_url();
         currentsView.loaded(false);
         beApi.downloadFile(url)
           .done(function(response){
@@ -161,7 +161,7 @@
       var i = $(this).parent().parent().index();
       var items = currentsView.items();
       if( items[i] ){
-        var url = items[i].url();
+        var url = items[i].user_dld_url();
         currentsView.loaded(false);
         beApi.downloadFile(url)
           .done(function(response){
@@ -180,7 +180,7 @@
       var i = $(this).parent().parent().index();
       var items = currentsView.items();
       if( items[i] ){
-        var url = items[i].url();
+        var url = items[i].user_dld_url();
         currentsView.loaded(false);
         beApi.stopDownload(url)
           .done(function(response){
@@ -199,7 +199,7 @@
       var i = $(this).parent().parent().index();
       var items = currentsView.items();
       if( items[i] ){
-        var url = items[i].url();
+        var url = items[i].user_dld_url();
         currentsView.loaded(false);
         beApi.trashDownload(url)
           .done(function(response){

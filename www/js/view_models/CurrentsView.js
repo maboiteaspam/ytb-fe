@@ -27,6 +27,7 @@ define([
             speed: ko.observable(),
             errors: ko.observableArray(),
             inactivity_time: ko.observable(),
+            has_information: ko.observable(false),
             webpage_url: ko.observable(),
             url: ko.observable(),
             user_dld_url: ko.observable()
@@ -84,6 +85,7 @@ define([
         item.webpage_url(items[n].webpage_url);
         item.url(items[n].url);
         item.user_dld_url(items[n].user_dld_url);
+        item.has_information(items[n].has_information);
       }
     }
 
