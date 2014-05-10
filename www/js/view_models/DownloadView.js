@@ -6,6 +6,8 @@ define([
     var that = this;
 
     that.url_to_fetch = ko.observable("");
+    that.fulltitle = ko.observable("");
+    that.description = ko.observable("");
     that.audio_only = ko.observable(false);
     that.force_restart = ko.observable(false);
     that.loaded = ko.observable(false);

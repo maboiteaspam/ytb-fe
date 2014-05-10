@@ -18,9 +18,11 @@ define([
             extractor: ko.observable(),
             thumbnail: ko.observable(),
             filename: ko.observable(),
+            files: ko.observableArray(),
             file_size: ko.observable(),
             description: ko.observable(),
             fulltitle: ko.observable(),
+            display_id: ko.observable(),
             eta: ko.observable(),
             status: ko.observable(),
             achieved: ko.observable(),
@@ -72,7 +74,9 @@ define([
         item.audio_only(items[n].audio_only);
         item.extractor(items[n].extractor);
         item.thumbnail(items[n].thumbnail);
+        item.display_id(items[n].display_id);
         item.filename(items[n].filename);
+        item.files(items[n].files);
         item.file_size(items[n].file_size);
         item.description(items[n].description);
         item.fulltitle(items[n].fulltitle);

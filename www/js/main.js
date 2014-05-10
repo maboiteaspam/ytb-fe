@@ -72,6 +72,8 @@
             downloadView.errors(response.errors);
             response.formats.unshift('Auto')
             downloadView.formats(response.formats);
+            downloadView.fulltitle(response.fulltitle);
+            downloadView.description(response.description);
           })
           .fail(function(){
             downloadView.formats([]);
@@ -88,6 +90,9 @@
       }
     }).extend({ rateLimit: 500 });
 
+    downloadView.on("click",".btn-clear",function(ev){
+      downloadView.url_to_fetch("");
+    })
     downloadView.on("click",".optionsView .btn",function(ev){
       var url = downloadView.url_to_fetch();
       currentsView.loaded(false);
@@ -97,7 +102,7 @@
       if( format != "Auto" ) options.format = format;
       options.audio_only = downloadView.audio_only();
       options.force_restart = downloadView.force_restart();
-      beApi.downloadFile(url, options)
+      beApi.startFile(url, options)
         .done(function(response){
           currentsView.syncItems(response.items);
         })
@@ -144,7 +149,7 @@
       if( items[i] ){
         var url = items[i].user_dld_url();
         currentsView.loaded(false);
-        beApi.downloadFile(url)
+        beApi.startFile(url)
           .done(function(response){
             currentsView.syncItems(response.items);
           })
@@ -163,7 +168,7 @@
       if( items[i] ){
         var url = items[i].user_dld_url();
         currentsView.loaded(false);
-        beApi.downloadFile(url)
+        beApi.startFile(url)
           .done(function(response){
             currentsView.syncItems(response.items);
           })
@@ -220,6 +225,21 @@
       if( items[i] ){
         downloadView.url_to_fetch( items[i].user_dld_url() );
         downloadView.audio_only( items[i].audio_only() );
+      }
+      ev.preventDefault();
+      return false;
+    });
+    currentsView.on("click",".btn-download",function(ev){
+      var i = $(this).parent().parent().index();
+      var items = currentsView.items();
+      if( items[i] ){
+        var url = items[i].user_dld_url();
+        var files = items[i].files();
+        for(var n in files ){
+          beApi.fileDownload(url,{
+            filename:files[n].filename
+          })
+        }
       }
       ev.preventDefault();
       return false;

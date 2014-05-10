@@ -62,5 +62,20 @@ define([],function(){
         }
       }),time_before,time_after);
     };
+
+    that.downloadFile = function(url,data){
+      var d = $.Deferred();
+      url = base_url+url+"?1=1";
+      for(var n in data ){
+        url += "&"+n+"="+data[n];
+      }
+      var iframe = $("<iframe src='"+url+"'></iframe>");
+      iframe.on("load",function(){
+        iframe.remove();
+        d.resolve();
+      });
+      iframe.appendTo("body");
+      return d;
+    };
   }
 });
