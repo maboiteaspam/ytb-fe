@@ -23,7 +23,7 @@
         <div class="downloadView" data-bind="css:{loaded:downloadView.loaded()}">
 
 
-            <form class="form-inline center-block" role="form">
+            <form class="form-inline center-block downloadSettings" role="form">
                 <div class="form-group">
                     <label for="url">URL</label>
                     <input type="text"
@@ -38,6 +38,9 @@
                 </div>
             </form>
 
+            <div class="loader" data-bind="css:{visible:downloadView.url_to_fetch().length>0&&downloadView.errors().length==0}">
+                <span class="ion-ios7-reloading"></span>
+            </div>
 
             <div class="panel panel-warning errorsView" data-bind="css:{visible:downloadView.errors().length>0}">
                 <div class="panel-heading">Errors</div>
@@ -98,9 +101,6 @@
                 </div>
             </div>
 
-            <div class="loader" data-bind="css:{visible:downloadView.url_to_fetch().length>0&&downloadView.errors().length==0}">
-                <span class="ion-ios7-reloading"></span>
-            </div>
 
         </div>
 

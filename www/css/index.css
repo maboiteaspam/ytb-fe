@@ -10,6 +10,9 @@ body{
 .downloadView{
     position: relative;
 }
+.downloadView .downloadSettings{
+    min-height: 50px;
+}
 .downloadView .input_url{
     min-width: 650px;
     margin-left: 15px;
