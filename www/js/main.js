@@ -225,6 +225,7 @@
       if( items[i] ){
         downloadView.url_to_fetch( items[i].user_dld_url() );
         downloadView.audio_only( items[i].audio_only() );
+        $("html, body").delay(0).animate({ scrollTop: 0 }, 1000, "easeOutExpo");
       }
       ev.preventDefault();
       return false;
