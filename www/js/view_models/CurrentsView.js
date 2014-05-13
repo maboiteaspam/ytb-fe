@@ -23,6 +23,7 @@ define([
             description: ko.observable(),
             fulltitle: ko.observable(),
             display_id: ko.observable(),
+            format: ko.observable(),
             eta: ko.observable(),
             status: ko.observable(),
             achieved: ko.observable(),
@@ -79,6 +80,7 @@ define([
         item.files(items[n].files);
         item.file_size(items[n].file_size);
         item.description(items[n].description);
+        item.format(items[n].format);
         item.fulltitle(items[n].fulltitle);
         item.eta(items[n].eta);
         item.errors(items[n].errors);

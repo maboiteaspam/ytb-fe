@@ -66,6 +66,7 @@
       var url = downloadView.url_to_fetch();
       downloadView.loaded(false);
       if( url.match(/^http:\/\//) ){
+
         downloadView.errors([]);
         beApi.fetchInformation(url)
           .done(function(response){
@@ -82,6 +83,7 @@
           .always(function(){
             downloadView.audio_only(false);
             downloadView.force_restart( false );
+
             downloadView.loaded(true);
           })
       }else {
@@ -143,8 +145,25 @@
     ko.computed(function(){
       recallRefresh(750);
     }).extend({ rateLimit: 500 });
+
+    currentsView.on("click",".item-row",function(ev){
+      $(this).toggleClass("show-more-infos")
+      if($(this).hasClass("show-more-infos")){
+        var h = 0;
+        h += $(this).outerHeight(true);
+        $(this).css("min-height", h+"px" )
+        h += $(this).find(".more-infos").outerHeight(true);
+        $(this).css("min-height", h+"px" )
+      }else{
+        var h = 0;
+        h += $(this).find(".more-infos").outerHeight(true);
+        $(this).css("min-height", $(this).outerHeight(true)-h );
+      }
+      ev.preventDefault();
+      return false;
+    });
     currentsView.on("click",".btn-start",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         var url = items[i].user_dld_url();
@@ -163,7 +182,7 @@
       return false;
     });
     currentsView.on("click",".btn-restart",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         var url = items[i].user_dld_url();
@@ -182,7 +201,7 @@
       return false;
     });
     currentsView.on("click",".btn-stop",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         var url = items[i].user_dld_url();
@@ -201,7 +220,7 @@
       return false;
     });
     currentsView.on("click",".btn-trash",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         var url = items[i].user_dld_url();
@@ -220,7 +239,7 @@
       return false;
     });
     currentsView.on("click",".btn-edit",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         downloadView.url_to_fetch( items[i].user_dld_url() );
@@ -231,7 +250,7 @@
       return false;
     });
     currentsView.on("click",".btn-download",function(ev){
-      var i = $(this).parent().parent().index();
+      var i = $(this).parentsUntil(".item-row").parent().index();
       var items = currentsView.items();
       if( items[i] ){
         var url = items[i].user_dld_url();

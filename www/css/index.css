@@ -4,37 +4,56 @@ body{
 
 .footer{
     padding-top: 5px;
+    box-shadow: 0px -2px 5px #888 !important;
 }
 
 
 .downloadView{
     position: relative;
+    transition-property: all;
+    transition-duration: 0.5s;
 }
-.downloadView .downloadSettings{
-    min-height: 50px;
+.downloadView .downloadUrl .row{
+    line-height: 54px;
 }
 .downloadView .input_url{
-    min-width: 650px;
-    margin-left: 15px;
+}
+.downloadView .downloadSettings{
+    width: 100%;
+    height: 0;
+}
+.downloadView .downloadSettings.visible{
+    height: auto;
 }
 .downloadView .optionsView{
     clear: both;
-    height: 0;
     visibility: hidden;
     transition-property: all;
     transition-duration: 0.5s;
     margin-bottom: 0;
+    height: 0;
+}
+.downloadView .optionsView > *{
+    display: none;
 }
 .downloadView.loaded .optionsView.visible{
     visibility: visible;
-    min-height: 350px;
     margin-top: 20px;
     margin-bottom: 20px;
+    min-height: 305px;
+    overflow: hidden;
+}
+.downloadView .optionsView.visible > *{
+    display: block;
 }
 .downloadView .optionsView .panel-body{
     visibility: hidden;
     opacity: 0;
     transition:visibility 0s linear 0.5s;
+}
+.downloadView .optionsView .downloadDescription{
+    overflow-y: auto;
+    height: 85px;
 }
 .downloadView.loaded .optionsView.visible .panel-body{
     visibility: visible;
@@ -66,36 +85,33 @@ body{
 
 .downloadView .errorsView{
     clear: both;
-    opacity: 0;
     height: 0;
+    opacity: 0;
     margin-top: 0;
     margin-bottom: 0;
     visibility: hidden;
     transition-property: all;
     transition-duration: 0.5s
 }
+.downloadView .errorsView > *{
+    display: none;
+}
 .downloadView .errorsView.visible{
     visibility: visible;
     opacity: 1;
-    height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 150px;
+}
+.downloadView .errorsView.visible > *{
+    display: block;
 }
 
 
 
 .currentsView{
     clear: both;
-}
-.currentsView .table-responsive{
-    opacity: 0;
-    height: 0;
-    transition-property: all;
-    transition-duration: 0.5s
-}
-.currentsView.visible .table-responsive{
-    opacity: 1;
-    height: auto;
+    margin-bottom: 80px !important;
 }
 
 .currentsView .loader{
@@ -110,22 +126,10 @@ body{
 }
 
 
-.currentsView tr{
-}
-.currentsView tr td{
-    vertical-align: middle;
-}
-.currentsView tr td .status-container{
-    position: relative;
-}
 .currentsView span{
-    font-size: 1.3em;
-    padding: 2px;
     transition-property: all;
     transition-duration: 0.2s;
     cursor: pointer;
-}
-.currentsView span:hover{
 }
 .currentsView button:hover{
     margin-top: 0px;
@@ -177,12 +181,6 @@ body{
 .currentsView .progress-bar{
     font-size: 13px !important;
     line-height: 15px!important;
-}
-.currentsView .progress.eventually_inactive{
-}
-.currentsView .progress.probably_inactive{
-}
-.currentsView .progress.seriously_inactive{
 }
 .currentsView .progress.visible{
     visibility: visible;
@@ -255,4 +253,90 @@ body{
 }
 .currentsView .btn-play:hover button{
     text-decoration: underline !important;
+}
+
+
+
+
+
+
+
+
+
+.currentsView .container-fluid .status-container{
+    height: 30px;
+}
+.currentsView .container-fluid .item-row{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    transition: min-height 0.5s;
+    position: relative;
+}
+.currentsView .container-fluid .item-row .bg-primary {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.currentsView .container-fluid .item-row:nth-child(odd) .bg-primary {
+    opacity: 0.025;
+}
+.currentsView .container-fluid .item-row:nth-child(even) .bg-primary {
+    opacity: 0;
+}
+.currentsView .container-fluid .item-row .border-bottom.bg-primary{
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 1;
+}
+.currentsView .container-fluid span{
+    font-size: 1em;
+}
+.currentsView .container-fluid .title-cell{
+}
+.currentsView .container-fluid .title-cell span{
+    font-size: 1em;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 26px;
+    font-weight: bold;
+}
+.currentsView .container-fluid .statsus-cell{
+}
+.currentsView .container-fluid .btn-cell {
+    padding-right: 0;
+    padding-left: 0;
+}
+.currentsView .container-fluid .btn-cell button{
+    width: 17%;
+}
+.currentsView .container-fluid .item-row.show-more-infos{
+}
+.currentsView .container-fluid .more-infos{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    bottom: 0;
+
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    transition: opacity 0s linear 0s;
+}
+.currentsView .container-fluid .item-row.show-more-infos .more-infos{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0s linear 0.5s;
+}
+.currentsView .container-fluid .spacer {
+    height: 5px;
+    float: left;
 }
